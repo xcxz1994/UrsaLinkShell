@@ -84,7 +84,7 @@
 #my_array[1]=B
 #my_array[2]=C
 #my_array[3]=D
-<<<<<<< HEAD
+
 
 #echo "数组的元素为: ${my_array[*]}"
 #echo "数组的元素为: ${my_array[@]}"
@@ -98,30 +98,71 @@
 a=10
 b=20
 
-val=`expr $a + $b`
-echo "a+b:$val"
+#val=`expr $a + $b`
+#echo "a+b:$val"
 
-val=`expr $a - $b`
-echo "a-b:$val"
+#val=`expr $a - $b`
+#echo "a-b:$val"
 
-val=`expr $a \* $b`
-echo "a*b :$val"
+#val=`expr $a \* $b`
+#echo "a*b :$val"
 
-val=`expr $b / $a`
-echo "b / a:$val"
+#val=`expr $b / $a`
+#echo "b / a:$val"
 
-val=`expr $b % $a`
-echo "b % a:$val"
+#val=`expr $b % $a`
+#echo "b % a:$val"
 
-if [ $a == $b ]
-then
-  echo "a=b"
+#if [ $a == $b ]
+#then
+#  echo "a=b"
+#fi
+#if [ $a != $b ]
+#then
+#   echo "a!=b"
+#fi
+
+if [ $a -eq $b ]
+then 
+   echo "$a -eq $b:a=b"
+else
+   echo "$a -eq $b:a!=b"
 fi
-if [ $a != $b ]
-then
-   echo "a!=b"
+
+if [ $a -ne $b ]
+then 
+   echo "$a -ne $b:a!=b"
+else
+   echo "$a -ne $b:a=b"
 fi
-=====
+
+if [ $a -gt $b ]
+then 
+  echo "$a -gt $b:a>b"
+else
+  echo "$a -gt $b:a!>b"
+fi
+
+if [ $a -lt $b ]
+then
+ echo "$a -lt $b:a<b"
+else
+ echo "$a -lt $b:a!<b"
+fi
+
+if [ $a -ge $b ]
+then 
+  echo "$a -ge $b:a>or=b"
+else 
+  echo "$a -ge $b:a<b"
+fi
+
+if [ $a -le $b ]
+then
+  echo "$a -le $b:a <or= b"
+else
+  echo "$a -le $b:a>b"
+fi
 
 
 
