@@ -67,4 +67,117 @@ else
  echo "两个数字不相等!"
 fi
 
+#for 循环一般格式为：
+
+:<<!
+for var in item1 item2 ... itemN
+do
+  command1
+  command2
+  ...
+  commandN
+done
+!
+#写成一行：
+
+#for var in item1 item2 ... itemN;do command1;command2.. done;
+#当变量值在列表里，for循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的shell命令和语句。in列表可以包含替换、字符串和文件名。
+
+for loop in 1 2 3 4 5
+do
+ echo "The value is:$loop"
+done
+
+for str in "This is a string"
+do
+ echo $str
+done
+
+#while 语句其格式为：
+
+:<<!
+while condition
+do
+ command
+done
+
+!
+int=1
+while(( $int <= 5))
+do 
+  echo $int
+  let "int++"
+done
+
+#while循环可用于读取键盘信息
+
+echo "按下 <CTRL-D> 退出"
+echo -n "输入你最喜欢的网站名:"
+while read FILM
+do 
+ echo "是的！$FILM 是一个好网站"
+done
+
+
+#无限循环语法格式：
+:<<!
+while 
+do
+ command
+done
+
+while true
+do
+  command
+done
+
+for (( ; ;))
+
+!
+
+#until 语法格式:
+:<<!
+until condition
+do
+  command
+done
+#条件可为任意测试条件，测试发生在循环末尾，因此循环至少执行一次—请注意这一点。
+!
+
+
+#case 语句格式如下：
+:<<!
+case 值 in
+模式1)
+  command1
+  command2
+  ...
+  commandN
+  ;;
+模式2)
+  command1
+  command2
+  ...
+  commandN
+  ;;
+esac
+!
+
+#case的语法和C family语言差别很大，它需要一个esac（就是case反过来）作为结束标记，每个case分支用右圆括号，用两个分号表示break。
+
+echo "输入 1 到 4 之间的数字:"
+echo "你输入的数字为:'"
+read aNum
+case $aNum in
+  1) echo "你选择了 1"
+  ;;
+  2) echo "你选择了 2"
+  ;;
+  3) echo "你选择了 3"
+  ;;
+  4) echo "你选择了 4"
+  ;;
+  *) echo "你没有输入 1 到 4 之间的数字"
+  ;;
+esac
 
