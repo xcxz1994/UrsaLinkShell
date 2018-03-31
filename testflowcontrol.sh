@@ -41,7 +41,7 @@ else
   commandN
 fi
 !
-
+:<<!
 a=10
 b=20
 if [ $a == $b ]
@@ -66,7 +66,7 @@ then
 else
  echo "两个数字不相等!"
 fi
-
+!
 #for 循环一般格式为：
 
 :<<!
@@ -82,7 +82,7 @@ done
 
 #for var in item1 item2 ... itemN;do command1;command2.. done;
 #当变量值在列表里，for循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的shell命令和语句。in列表可以包含替换、字符串和文件名。
-
+:<<！
 for loop in 1 2 3 4 5
 do
  echo "The value is:$loop"
@@ -92,7 +92,7 @@ for str in "This is a string"
 do
  echo $str
 done
-
+！
 #while 语句其格式为：
 
 :<<!
@@ -102,15 +102,16 @@ do
 done
 
 !
+:<<!
 int=1
 while(( $int <= 5))
 do 
   echo $int
   let "int++"
 done
-
+!
 #while循环可用于读取键盘信息
-
+:<<!
 echo "按下 <CTRL-D> 退出"
 echo -n "输入你最喜欢的网站名:"
 while read FILM
@@ -118,7 +119,7 @@ do
  echo "是的！$FILM 是一个好网站"
 done
 
-
+!
 #无限循环语法格式：
 :<<!
 while 
@@ -164,7 +165,7 @@ esac
 !
 
 #case的语法和C family语言差别很大，它需要一个esac（就是case反过来）作为结束标记，每个case分支用右圆括号，用两个分号表示break。
-
+:<<!
 echo "输入 1 到 4 之间的数字:"
 echo "你输入的数字为:'"
 read aNum
@@ -180,4 +181,40 @@ case $aNum in
   *) echo "你没有输入 1 到 4 之间的数字"
   ;;
 esac
+!
+
+
+#break break命令允许跳出所有循环（终止执行后面的所有循环）:
+:<<!
+while :
+do 
+  echo -n "输入 1 到 5 之间的数字:"
+  read aNum
+  case $aNum in
+     1|2|3|4|5) echo "你输入的数字为 $aNum!"
+     ;;
+     *) echo "你输入的数字不是 1 到 5 之间的! 游戏结束"
+        break
+     ;;
+  esac
+done
+!
+
+#continue continue命令与break命令类似，只有一点差别，它不会跳出所有循环，仅仅跳出当前循环。
+
+
+while :
+do
+ echo -n "输入 1 到 5 之间的数字: "
+ read aNUm
+ case $aNum in
+    1|2|3|4|5) echo "你输入的数字为 $aNum!"
+    ;;
+    *) echo "你输入的数字不是 1 到 5 之间的!"
+         continue
+         echo "游戏结束"
+    ;;
+ esac
+done
+
 
