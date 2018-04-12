@@ -152,4 +152,26 @@ sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnom
 
 sudo apt-get remove onboard deja-dup -y
 
+sudo add-apt-repository ppa:fcitx-team/nightly -y
+sudo apt-get update
+sudo apt-get install fcitx -y
+
+sudo apt-get install fcitx-config-gtk
+
+sudo apt-get install fcitx-table-all -y
+
+sudo apt-get install im-switch -y
+
+cd /etc && sudo mkdir fcitx
+cd fcitx
+
+sudo wget http://mirrors.sohu.com/deepin/pool/non-free/f/fcitx-sogoupinyin-release/fcitx-sogoupinyin_0.0.6-1_i386.deb
+
+sudo dpkg -i fcitx-sogoupinyin_0.0.6-1_i386.deb
+
+sudo apt-get install im-config -y
+
+sudo im-config
+
+fcitx-config-gtk3
 
