@@ -25,6 +25,8 @@ sudo sleep 30s
 ssh-add   ~/.ssh/id_rsa && ssh -T git@github.com
 
 
+git config --global user.token "75c873ad507cecf694a0623ec6f631e0739ecae8"
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
  
 
 
